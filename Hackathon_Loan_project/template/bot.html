@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sample HTML Page</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-yKsDPtCnEw+KNDu6zlo5lEO3Gib0/05lFTVMofyjWNv2xrV4/XJn29uHDZjDI8bc" crossorigin="anonymous">
+  <style>
+    /* Custom CSS Styles */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #191919;
+    }
+
+    #openChatbotButton {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 1001;
+      font-size: 20px;
+    }
+
+    #chat-container {
+      background-size: cover;
+      background-repeat: no-repeat;
+      width: 400px;
+      height: 600px;
+      overflow-y: auto;
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 1005;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      display: none;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      background-color: white;
+    }
+
+    #chat-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px;
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+      background-color: #007bff;
+      color: white;
+    }
+
+    #closeChatbot {
+      background-color: red;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    #closeChatbot:hover {
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+    #chat-log {
+      margin: 0;
+      padding: 10px;
+      overflow-y: auto;
+      flex-grow: 1;
+    }
+    
+
+    #user-input {
+      border-radius: 20px 0 0 20px;
+      font-size: 15px;
+      padding: 15px;
+      width: 75%;
+    }
+
+    #send-button {
+      border-radius: 0 20px 20px 0;
+      font-size: 15px;
+      padding: 15px 13px;
+    }
+
+    .input-group {
+      width: 100%;
+      align-self: flex-end;
+    }
+
+    .user-message {
+      background-color: #d6e0f0;
+      border-radius: 5px;
+      padding: 10px 20px;
+      margin: 5px 0;
+    }
+
+    .model-message {
+      background-color: #e3f2e9;
+      border-radius: 5px;
+      padding: 15px 20px;
+      margin: 5px 0;
+      color: #191919;
+    }
+
+
+    pre {
+      background-color: #f8f9fa;
+      padding: 10px;
+      border-radius: 5px;
+      overflow-x: auto;
+      white-space: pre-wrap;
+    }
+
+    code {
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 14px;
+      
+    }
+
+    .content {
+      margin: 20px;
+    }
+
+    .chatbot-info {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      width: 500px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      color: #007bff;
+    }
+
+    p {
+      color:white;
+    }
+    .chatbot-bot{
+      color:black;
+    }
+    user-message p {
+      color: black; /* Change text color for user messages */
+    }
+
+    .model-message p {
+      color: black; /* Change text color for chatbot responses */
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="row" style="width: 500px; margin-left:100px;">
+    <div class="col-md-8">
+      <h1>Welcome to Chatbot!</h1>
+      <p>Chatbot is an innovative tool designed to provide automated responses to your inquiries.</p>
+      <p>Feel free to interact with the chatbot by typing your messages below.</p>
+      <div class="chatbot-info">
+        <h3>What is a Chatbot?</h3>
+        <p class="chatbot-bot">A chatbot is a software application used to conduct an online chat conversation via text or text-to-speech,
+          in lieu of providing direct contact with a live human agent. Chatbots are designed to simulate human
+          conversation and can be integrated into various platforms to automate tasks or provide information.</p>
+        <h3>Instructions:</h3>
+        <ol>
+          <li>Click the "Open Chatbot" button below to start the conversation.</li>
+          <li>Type your message in the input field provided.</li>
+          <li>Press "Send" to submit your message and receive a response from the chatbot.</li>
+          <li>To close the chatbot, click the "Close" button.</li>
+        </ol>
+      </div>
+    </div>
+
+    <button id="openChatbotButton" class="btn btn-primary">Open Chatbot</button>
+
+    <div id="chat-container">
+      <button id="closeChatbot" class="btn btn-danger">Close</button>
+      <div id="chat-log"></div>
+      <div class="input-group">
+        <input type="text" id="user-input" class="form-control" placeholder="Type your message...">
+        <button id="send-button" class="btn btn-primary" onclick="sendMessage()">Send</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- JavaScript -->
+  <script>
+    document.getElementById("openChatbotButton").addEventListener("click", function () {
+      // Show the chat container when the button is clicked
+      document.getElementById("chat-container").style.display = "block";
+    });
+
+    document.getElementById("closeChatbot").addEventListener("click", function () {
+      // Close the chat container when the "Close" button is clicked
+      document.getElementById("chat-container").style.display = "none";
+    });
+
+    function sendMessage() {
+      var userInput = document.getElementById("user-input").value;
+      document.getElementById("user-input").value = '';
+      document.getElementById("chat-log").innerHTML += "<p class='user-message'>You: " + userInput + "</p>";
+
+      // Send user input to the server
+      fetch('/generate', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: 'user_input=' + userInput
+      })
+        .then(response => response.json())
+        .then(data => {
+          var modelResponse = data.response;
+          var messageBlock = document.createElement('div');
+          messageBlock.classList.add('model-message');
+
+          // Check if the response starts with '*' (star)
+          if (modelResponse.startsWith('*')) {
+            // Remove the star and make the output heading bold
+            modelResponse = modelResponse.replace('*', '');
+            messageBlock.innerHTML = "<p><strong>" + modelResponse + "</strong></p>";
+          } else {
+            // If no star, check for code block
+            if (modelResponse.startsWith('```')) {
+              // Code block detected, wrap in <pre><code> tags for syntax highlighting
+              modelResponse = modelResponse.replace('```', '').trim(); // Remove starting ```
+              modelResponse = modelResponse.replace('```', ''); // Remove ending ```
+              messageBlock.innerHTML = "<pre><code>" + modelResponse + "</code></pre>";
+            } else {
+              // No code block detected, display the response normally
+              messageBlock.innerHTML = "<p>" + modelResponse + "</p>";
+            }
+          }
+
+          document.getElementById("chat-log").appendChild(messageBlock);
+          // Scroll to bottom of chat log
+          document.getElementById("chat-log").scrollTop = document.getElementById("chat-log").scrollHeight;
+        });
+    }
+  </script>
+</body>
+
+</html>

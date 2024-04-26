@@ -1,0 +1,235 @@
+
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* Outermost main container */
+.main {
+    padding: 100px 0;
+    display: flex;
+    flex-direction: column;
+    /* Center horizontally */
+    justify-content: center;
+    /* Center vertically */
+    align-items: center;
+}
+
+/* Subtitles inside form container */
+h3 {
+    font-size: 25px;
+    margin-bottom: 20px;
+}
+
+/*  class 'container' which contains form and image */
+.container {
+    
+    
+    background-color: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+    /* Add a shadow for readability */
+    display: flex;
+    flex-direction: row;
+    padding: 30px 30px;
+
+}
+.container1 {
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    padding: 30px 30px;
+    /* background-color: #cff39f; */
+    padding: 30px 30px;
+
+}
+.graph{
+    display: flex;
+    align-items: center;
+    margin: 60px;
+    
+
+}
+.graph p{
+    font-size: 20px;
+    color: red;
+    font-weight: 600;
+}
+.signup-form1{
+    display:flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+/* Image  */
+.signup-image {
+    margin-right: 90px;
+    margin-top: 100px;
+}
+
+/* Form */
+.signup-form {
+    padding: 0 20px;
+    margin: 0 auto;
+}
+
+/* title of the form */
+.form-title {
+    margin-top: 20px;
+    margin-bottom: 40px;
+    color: hsl(273, 21%, 8%);
+    font-family: Poppins;
+    font-size: 20px;
+    text-align: center;
+}
+
+/* styling of container for each input */
+.form-group {
+    position: relative;
+    margin-bottom: 35px;
+    display: flex;
+    flex-direction: row;
+    padding-bottom: 0;
+}
+
+/* last input box of form */
+.form-group:last-child {
+    margin-bottom: 0px;
+}
+
+/* Styling of input boxes and resizing of font size of select options */
+input,
+select {
+    width: 100%;
+    display: inline-block;
+    border: none;
+    border-bottom: 1px solid #999;
+    padding: 0px 30px;
+    font-family: Poppins;
+    box-sizing: border-box;
+    outline: none;
+    font-size: 17px;
+}
+
+/* Adjust dropdown to the rightmost margin */
+input[type="number"],
+input[type="date"] {
+    padding-right: 0;
+}
+
+/* set the cursor pointer when hovered */
+input[type="button"]:hover,
+input[type="submit"]:hover,
+select:hover {
+    cursor: pointer;
+}
+
+/* Change cursor to pointer for calander icon */
+input[type="date"]::-webkit-calendar-picker-indicator {
+    cursor: pointer;
+
+}
+
+/* Adjust the font size of placeholder */
+::placeholder {
+    font-size: 15px;
+
+}
+
+/* styling of submit button */
+.form-submit {
+    display: inline-block;
+    background: #6dabe4;
+    color: #fff;
+    border-bottom: none;
+    width: auto;
+    padding: 15px 39px;
+    border-radius: 5px;
+}
+
+/* Styling of icons written inside label.  */
+.custom-file-upload, .custom-submit-button{
+display: inline-block;
+        padding: 6px 12px;
+        cursor: pointer;
+        border: 1px solid #ccc;
+        background-color: #f5f5f5;
+        border-radius: 4px;
+        margin-top: 10px;
+}
+
+/* Div container for terms and services */
+
+/* Checkbox */
+.agree-term {
+    width: auto;
+    text-decoration: none;
+    margin-top: 1%;
+}
+
+/* link of terms and services */
+.term-service {
+    text-decoration: none;
+    color: green;
+}
+
+.label-agree-term {
+    position: relative;
+    margin-left: 5px;
+}
+
+/* This media query targets screens smaller than 768px, which includes many phones */
+@media screen and (max-width: 767px) {
+    body {
+        align-items: center;
+        justify-content: center;
+    }
+
+    .main {
+        margin: 5 auto;
+    }
+
+    .container {
+        width: 100vw;
+    }
+
+    .signup-form {
+        justify-self: content;
+        width: 85%;
+    }
+
+
+    .signup-image {
+        display: none;
+    }
+}
+
+/* footer.css */
+
+.footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+    width: 100%;
+    height: 80px;
+    position: relative;
+    margin-top: auto;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.footer a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}

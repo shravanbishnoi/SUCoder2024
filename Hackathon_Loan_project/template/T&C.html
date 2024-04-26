@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loan Approval Prediction Terms and Conditions</title>
+    <link rel="stylesheet" href="../static/css/T&C.css">
+    <link rel="stylesheet" href="../static/css/nav.css">
+    <style>
+        .hidden {
+            display: none;
+        }
+    
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start; /* Align items to the start of the column */
+        }
+    </style>
+</head>
+
+
+<body style="background-image: url('static/images/nm.jpg');opacity: 95%; background-repeat: no-repeat; background-attachment: fixed; background-size: cover;">
+    
+    <div class="navbar">
+        <img src="static/images/kh.jpg">
+        <h1 id="website_name">BorrowBuddy</h1>
+        <div class="hca">
+            <a href="/index">Home</a>
+            <a href="/login">SignUp/Login</a>
+            <a href="/interest">Interest</a>
+            <div class="dropdown">
+                <button>read</button>
+                <div class="dropdown-content">
+                    <button onclick="speak()">Speak</button>
+                    <button onclick="stopSpeaking()">Stop</button>
+                    <label for="speed">Speed:</label>
+                    <input type="range" id="speed" min="0.1" max="2" step="0.1" value="1" onchange="changeSpeed(this.value)">
+                </div>
+            </div>
+            <a href="/condition">T & C</a>
+            <a href="/about">About</a>
+        </div>
+    </div>
+    <br> 
+    <br>
+    <br>
+    <div class="container" id="container">
+        <h2>Loan Approval Prediction Terms and Conditions</h2>
+        <ol>
+            <li>
+                <h3>Purpose</h3>
+                <p>The loan approval prediction service provided by BorrowBuddy is intended to offer individuals insights into their likelihood of loan approval based on comprehensive data analysis and machine learning algorithms.</p>
+            </li>
+            <li>
+                <h3>Accuracy Disclaimer</h3>
+                <p>While utmost care is taken to ensure the accuracy of loan approval predictions, it is imperative to acknowledge that the predictions are based on historical data and machine learning algorithms. BorrowBuddy cannot guarantee absolute accuracy due to potential variations in individual circumstances and unaccounted external factors.</p>
+            </li>
+            <li>
+                <h3>Data Privacy</h3>
+                <p>All user-provided data for loan approval prediction purposes will be treated with strict confidentiality and will not be disclosed to any third parties without explicit consent, except where mandated by law.</p>
+            </li>
+            <li>
+                <h3>Model Reliability</h3>
+                <p>The loan approval prediction model employed by BorrowBuddy undergoes rigorous testing and validation. However, it is essential to recognize that no model is infallible, and users are advised against making sole financial decisions based solely on the predictions provided.</p>
+            </li>
+            <li>
+                <h3>Utilization of Pickle Library</h3>
+                <p>To manage the Python machine learning model efficiently, BorrowBuddy utilizes the Pickle library for serialization and deserialization purposes. This ensures the seamless storage and retrieval of the trained model.</p>
+            </li>
+            <li>
+                <h3>Graphical Representation</h3>
+                <p>As part of our commitment to transparency, BorrowBuddy presents graphical representations derived from the CSV training dataset. These visualizations, including histograms, bar charts, and scatter plots, aim to elucidate the factors influencing loan approval decisions.</p>
+            </li>
+            <li>
+                <h3>Limitation of Liability</h3>
+                <p>BorrowBuddy shall not be held liable for any damages, whether direct, indirect, incidental, consequential, or punitive, arising from the use or inability to use the loan approval prediction service. Users expressly acknowledge and accept this limitation of liability.</p>
+            </li>
+            <li>
+                <h3>Acceptance of Terms</h3>
+                <p>By accessing and utilizing the loan approval prediction service, users agree to adhere to these terms and conditions. BorrowBuddy reserves the right to amend or revise these terms and conditions at its discretion without prior notice.</p>
+            </li>
+        </ol>
+        <footer>
+            <p>For inquiries or concerns, please contact BorrowBuddy at <a href="mailto:ddlsandeep7@gmail.com">ddlsandeep7.com</a>.</p>
+        </footer>
+    </div>
+    <script>
+        var speaking = false;
+        var utterance = null;
+        
+        function speak() {
+            var text = document.querySelector("#container").textContent.trim();
+            var lang = "en"; // Default to English
+            var speed = parseFloat(document.getElementById('speed').value);
+        
+            var speechConfig = new SpeechSynthesisUtterance(text);
+            speechConfig.lang = lang;
+            speechConfig.rate = speed;
+        
+            speaking = true;
+            utterance = speechConfig;
+            window.speechSynthesis.speak(speechConfig);
+        }
+        
+        function stopSpeaking() {
+            if (speaking) {
+                window.speechSynthesis.cancel();
+                speaking = false;
+            }
+        }
+        
+        function changeSpeed(speed) {
+            if (utterance !== null) {
+                utterance.rate = parseFloat(speed);
+                window.speechSynthesis.cancel();
+                window.speechSynthesis.speak(utterance);
+            }
+        }
+    </script>
+    
+</body>
+</html>

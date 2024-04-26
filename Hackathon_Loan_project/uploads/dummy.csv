@@ -1,0 +1,7 @@
+Name,Birthdate,Gender,Married,Dependents,Education,Self_Employed,ApplicantIncome,CoapplicantIncome,LoanAmount,Loan_Amount_Term,Credit_History,Property_Area
+Pradeep,5/15/1990,Male,Single,1,Graduate,Yes,50000,20000,300000,360,All Debts Paid,Urban
+Sandeep,8/25/1988,Female,Married,2,Graduate,No,60000,25000,400000,360,All Debts Paid,Semi-Urban
+Yashwardhan,10/10/1985,Male,Married,3+,Not Graduate,No,40000,15000,200000,240,Not paid,Rural
+Pallavi,2/28/1995,Female,Single,0,Graduate,Yes,30000,10000,150000,180,All Debts Paid,Urban
+Shravan,11/20/1992,Male,Married,1,Graduate,Yes,55000,18000,350000,300,All Debts Paid,Semi-Urban
+Manu,12/12/1980,Female,Married,3+,Graduate,No,70000,30000,450000,360,All Debts Paid,Rural
