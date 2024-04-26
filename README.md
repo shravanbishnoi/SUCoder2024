@@ -9,4 +9,3 @@ In this project, we have designed a Loan Approval Predition platform where an ap
 
 ## Contact
 Please reach out to me at Email: shravanbishnoi008754@gmail.com for any queries.
-Thank you
