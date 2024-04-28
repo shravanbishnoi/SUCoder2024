@@ -2,30 +2,32 @@
 <html lang="en">
 
 <head>
+    <!-- Meta tags -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Title -->
     <title>Loan Approval Prediction</title>
 
     <!-- Font Icon -->
     <link rel="stylesheet" href="../static/fonts/material-icon/css/material-design-iconic-font.min.css">
+    <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="../static/images/favicon.ico">
 
     <!-- Main css -->
     <link rel="stylesheet" href="../static/css/index.css">
     <link rel="stylesheet" href="../static/css/nav.css">
-    
 </head>
 
 <body style="background-image: url('static/images/nm.jpg');opacity: 95%; background-repeat: no-repeat; background-attachment: fixed; background-size: cover;">
 
-
+    <!-- Navbar -->
     <div class="main">
-
         <div class="navbar">
             <img src="static/images/kh.jpg">
             <h1 id="website_name">BorrowBuddy</h1>
             <div class="hca">
+                <!-- Navigation links -->
                 <a href="/index">Home</a>
                 <a href="/login">SignUp/Login</a>
                 <a href="/interest">Interest</a>
@@ -34,53 +36,63 @@
                 <a href="/chatbot">Chat-With-Us</a>
             </div>
         </div>
+
+        <!-- Graphs Section -->
         <div class="container1">
-            <div class="graph" >
+            <div class="graph">
+                <!-- Graph 1 -->
                 <img src="static/images/g1.png" alt='Demo-Graph-1' width="800px" height="300px">
-                <br> 
-                <br>
+                <br><br>
+                <!-- Graph 1 Description -->
                 <p>A higher income usually allows applicants to qualify for larger loan amounts since they have the financial capacity to manage higher monthly payments.</p>
             </div>
             <div class="graph">
+                <!-- Graph 2 Description -->
                 <p>A high credit score indicates responsible credit management and reduces the perceived risk for lenders. Applicants with high credit scores are more likely to get approved for loans.</p>
-                <br> 
-                <br>
-                <img src="static/images/g2.png" alt='Demo-Graph-2'width="800px" height="300px">
-                
+                <br><br>
+                <!-- Graph 2 -->
+                <img src="static/images/g2.png" alt='Demo-Graph-2' width="800px" height="300px">
             </div>
             <div class="graph">
-                <img src="static/images/g3.jpg" alt='Demo-Graph-3'width="800px" height="300px">
-                <br> <br>
+                <!-- Graph 3 -->
+                <img src="static/images/g3.jpg" alt='Demo-Graph-3' width="800px" height="300px">
+                <br><br>
+                <!-- Graph 3 Description -->
                 <p>Properties in less desirable or high-risk areas, such as locations prone to natural disasters or with limited amenities, may face challenges in loan approval due to lower property values and higher risks associated with them.</p>
             </div>
         </div>
-        <br>
-        <br>
-        <br>
+        <br><br><br>
+
         <!-- Applicant form -->
         <div class="container">
+            <!-- CSV Prediction Form -->
             <div class="signup-form1">
                 <div>
                     <h1>Prediction-For-CSV</h1>
                     <form action="/predict_csv" method="post" enctype="multipart/form-data">
+                        <!-- File Upload -->
                         <label for="file" class="custom-file-upload">
                             <input type="file" name="file" id="file" accept=".csv" style="display:none;">
                             Upload CSV File
                         </label>
+                        <!-- Submit Button -->
                         <button class="custom-submit-button" type="submit">Predict from CSV</button>
                     </form>
                 </div>
-                <br> <br> <br>  
+                <br><br><br>
+                <!-- Images -->
                 <div class="signup-image">
                     <figure><img src="../static/images/signup-image.jpg" alt="sing up image"></figure>
                 </div>
                 <div class="signup-image">
                     <figure><img src="../static/images/BA.jpg" alt="sing up image" width="300px" height="300px"></figure>
                 </div>
-                
             </div>
+
+            <!-- Individual Prediction Form -->
             <div class="signup-form2">
                 <h1>Check-For-Individual</h1>
+                <!-- Individual Prediction Form -->
                 <form action="/prediction" method="POST" class="register-form" id="register-form">
                     <h3>Basic-Information</h3>
                     <!-- Name -->
@@ -185,12 +197,13 @@
                             <option value=2>Rural</option>
                         </select>
                     </div>
-                        
+                    <!-- Terms and conditions checkbox -->
                     <div class="form-group">
                         <input type="checkbox" name="agree-term" id="agree-term" class="agree-term" />
                         <label for="agree-term" class="label-agree-term"><span><span></span></span>I agree all
                             statements in <a href="#" class="term-service">Terms of service</a></label>
                     </div>
+                    <!-- Submit Button -->
                     <div class="form-group form-button">
                         <input type="submit" name="signup" id="signup" class="form-submit" value="Check Status" />
                     </div>
@@ -198,8 +211,8 @@
             </div>
         </div>
     </div>
-    
 
+    <!-- Footer -->
     <footer class="footer">
         <div class="footer-content">
             <p>&copy; 2024 Loan-Predictor. All Rights Reserved.</p>
